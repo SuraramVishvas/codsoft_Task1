@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizon - Digital Solutions</title>
+    <style>
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        line-height: 1.6;
+        color: #333;
+        background-color: #f8f9fa;
+      }
+
+      /* Header styles */
+      header {
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #3a86ff;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #555;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #3a86ff;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #3a86ff;
+        color: white;
+        padding: 0.7rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #2667cc;
+      }
+
+      /* Hero section */
+      .hero {
+        background: linear-gradient(45deg, #3a86ff, #8338ec);
+        color: white;
+        padding: 5rem 5%;
+        display: flex;
+        align-items: center;
+        min-height: calc(100vh - 83px);
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+      .hero-image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .hero-image img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        max-width: 80%;
+      }
+
+      /* Features section */
+      .features {
+        padding: 5rem 5%;
+        background-color: #ffffff;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+        color: #333;
+      }
+
+      .features-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        padding: 2rem;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: #3a86ff;
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .feature-card p {
+        color: #666;
+      }
+
+      /* Testimonials section */
+      .testimonials {
+        padding: 5rem 5%;
+        background-color: #f8f9fa;
+      }
+
+      .testimonials-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .testimonial-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        color: #555;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+      }
+
+      .author-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 1rem;
+        background-color: #ddd;
+      }
+
+      .author-info h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .author-info p {
+        font-size: 0.9rem;
+        color: #777;
+      }
+
+      /* CTA Section */
+      .cta {
+        padding: 5rem 5%;
+        background: linear-gradient(45deg, #3a86ff, #8338ec);
+        color: white;
+        text-align: center;
+      }
+
+      .cta-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .cta h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        border: 2px solid white;
+      }
+
+      .btn-secondary:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Footer */
+      footer {
+        padding: 3rem 5%;
+        background-color: #222;
+        color: #aaa;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-col h3 {
+        color: white;
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+      }
+
+      .footer-col ul {
+        list-style: none;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-col a {
+        color: #aaa;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-col a:hover {
+        color: white;
+      }
+
+      .footer-bottom {
+        max-width: 1200px;
+        margin: 0 auto;
+        border-top: 1px solid #444;
+        padding-top: 1.5rem;
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .hero-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .hero p {
+          max-width: 100%;
+        }
+
+        .navbar {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav-links {
+          margin-top: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header with navigation -->
+    <header>
+      <nav class="navbar">
+        <a href="#" class="logo">Vishvas Landing Page</a>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#" class="btn">Get Started</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Transform Your Digital Presence</h1>
+          <p>
+            We help businesses stand out in the digital world with innovative
+            solutions tailored to their unique needs.
+          </p>
+          <a href="#" class="btn">Learn More</a>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://i0.wp.com/epthinktank.eu/wp-content/uploads/2022/01/AdobeStock_266111762.png?fit=820%2C410&ssl=1"
+            alt="Digital transformation illustration"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Features section -->
+    <section class="features" id="features">
+      <h2 class="section-title">Our Features</h2>
+      <div class="features-container">
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>Web Development</h3>
+          <p>
+            Custom websites designed to showcase your brand and engage your
+            audience effectively.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📱</div>
+          <h3>Mobile Apps</h3>
+          <p>
+            Native and cross-platform mobile applications that deliver
+            exceptional user experiences.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Digital Marketing</h3>
+          <p>
+            Strategic marketing campaigns to increase your online visibility and
+            drive conversions.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials section -->
+    <section class="testimonials" id="testimonials">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <div class="testimonials-container">
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-image"></div>
+            <div class="author-info">
+              <h4>Lorem Ipsum</h4>
+              <p>CEO, LoremCorp</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-image"></div>
+            <div class="author-info">
+              <h4>Dolor Sit</h4>
+              <p>Director, Ipsum Ltd.</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">
+            "Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur."
+          </p>
+          <div class="testimonial-author">
+            <div class="author-image"></div>
+            <div class="author-info">
+              <h4>Amet Consectetur</h4>
+              <p>Founder, Adipiscing Co.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action section -->
+    <section class="cta">
+      <div class="cta-container">
+        <h2>Ready to Elevate Your Business?</h2>
+        <p>
+          Get in touch with us today to discover how we can help you achieve
+          your digital goals.
+        </p>
+        <div class="cta-buttons">
+          <a href="#" class="btn">Get Started</a>
+          <a href="#" class="btn btn-secondary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-col">
+          <h3>Horizon</h3>
+          <p>
+            Transforming businesses through innovative digital solutions since
+            2015.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#">Web Development</a></li>
+            <li><a href="#">Mobile Apps</a></li>
+            <li><a href="#">Digital Marketing</a></li>
+            <li><a href="#">UX/UI Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">Guides</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="#">suraramvishvas01@gmail.com</a></li>
+            <li><a href="#">+91 9121794664</a></li>
+            <li><a href="#">University Of Hyderabad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Vishvas. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
